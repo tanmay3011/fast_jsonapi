@@ -162,7 +162,7 @@ module FastJsonapi
         serializer_key = options[:serializer] || relationship_name.to_sym
         key = options[:key] || run_key_transform(relationship_name)
         record_type = options[:record_type] || run_key_transform(relationship_name)
-        relationship = {
+        add_relationship(name, {
           key: key,
           name: name,
           id_method_name: options[:id_method_name] || (relationship_name.to_s + '_id').to_sym,
@@ -179,7 +179,7 @@ module FastJsonapi
         serializer_key = options[:serializer] || name
         key = options[:key] || run_key_transform(relationship_name)
         record_type = options[:record_type] || run_key_transform(relationship_name)
-        relationship = {
+        add_relationship(name, {
           key: key,
           name: name,
           id_method_name: options[:id_method_name] || (relationship_name.to_s + '_id').to_sym,
